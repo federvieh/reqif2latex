@@ -1,0 +1,49 @@
+Overview
+========
+reqif2latex is a very basic tool for converting requirement documents from the
+ReqIF format into LaTeX to create PDF documents. It is a xlst file, so a xslt
+processor is need for doing the transformation.
+
+Disclaimer
+----------
+This XLST has only been tested with one requirement document and one xslt
+processor (namely xsltproc). I did not read the ReqIF format specification, but
+was just looking at one ReqIF file that was created with ProR 0.9. So there is
+no guarantee that it works with any other file. It is unlikely that it works
+with files that were created using any other tool than ProR.
+
+This is the first XSLT I ever created. I hacked it together in one afternoon
+while learning about XSLT. So it's probably not efficient and very buggy.
+
+How to use it
+=============
+Format of the reqif file
+------------------------
+The reqif is expected to consist of only one specification.
+
+The xslt currently only supports two object types:
+  * Requirement Type and
+  * Heading Type
+
+The Requirement Type must at least consist of the attributes 'Description' and
+'ID'. Any other attributes are ignored and will not be shown in the Latex/PDF
+document (for now). Also links are not shown.
+
+The Heading Type must at least consist of the attribute 'Description'. Any other
+attributes are ignored and will not be shown in the Latex/PDF document.
+
+Preparing the reqif file
+------------------------
+Make a copy of the requif file. Change the copy by removing all the namespaces
+from the root <REQ-IF> node (not sure why that it is needed).
+
+Convert the modified reqif file into latex
+------------------------------------------
+You need a xslt processor. I used xsltproc. Run the following command:
+xsltproc --output <filename>.tex reqif2Latex.xsl <filename>.reqif
+
+Convert the LaTeX file into PDF
+-------------------------------
+You need to have a working LaTeX environment and the KOMA scripts. Run:
+pdflatex <filename>.tex
+
