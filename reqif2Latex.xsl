@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:variable name="specmode" select="'spec'"/>
+  <xsl:param name="specmode" select="'spec'"/>
   <xsl:output method="text"/>
   <xsl:key name="req_text" match="/REQ-IF/CORE-CONTENT/REQ-IF-CONTENT/SPEC-OBJECTS/SPEC-OBJECT" use="@IDENTIFIER"/>
   <xsl:key name="attr_type" match="/REQ-IF/CORE-CONTENT/REQ-IF-CONTENT/SPEC-TYPES/SPEC-OBJECT-TYPE/SPEC-ATTRIBUTES/ATTRIBUTE-DEFINITION-STRING" use="@IDENTIFIER"/>
