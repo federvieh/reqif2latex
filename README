@@ -32,11 +32,6 @@ document (for now). Also links are not shown.
 The Heading Type must at least consist of the attribute 'Description'. Any other
 attributes are ignored and will not be shown in the Latex/PDF document.
 
-Preparing the reqif file
-------------------------
-Make a copy of the requif file. Change the copy by removing all the namespaces
-from the root <REQ-IF> node (not sure why that it is needed).
-
 Convert the modified reqif file into latex
 ------------------------------------------
 You need a xslt processor. I used xsltproc. Run the following command:
